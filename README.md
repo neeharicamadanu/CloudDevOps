@@ -17,11 +17,13 @@ environment is a defining aspect of the CI/CD pipeline.
 Phases in Pipeline
 
 Code Repository Phase
+
 The CI/CD pipeline tasks are triggered by updates to the repository. These updates can come
 from automatic schedulers, user workflows, or repository updates, which notify the CI/CD to
 execute the configured pipeline tasks.
 
 GITHUB REPOSITORY:
+
 The references for the Github repositories of Terraform EC2 Jenkins Creation [1] and WordCount
 Flask APP [2] are included. The Terraform EC2 repository contains the JenkinsFile that is executed
 once the build is started in the build phase of Jenkins.
@@ -29,6 +31,7 @@ The WordCount Flask APP repository contains the Dockerfile that is executed in t
 for the creation Flask APP instance server that runs a Web Application.
 
 CHALLENGES
+
 I had trouble pushing the code to the repository that I created. It kept showing an authentication
 failed message. Luckily, I found a solution to this problem. I created an access key in the GitHub
 repository, which I used as a password to authenticate the push to the corresponding
@@ -36,6 +39,7 @@ repositories. The access key specifies the necessary access points and the numbe
 be valid.
 
 Build Phase
+
 During the Build Phase, the source code is linked with its corresponding dependencies in order to
 create a runnable instance that can be delivered to end customers. Unlike some other
 programming languages, Python does not require compilation during this process. Additionally,
@@ -44,6 +48,7 @@ environment. It's important to note that any configuration issues during this ph
 failures, which require immediate attention.
 
 JENKINS BUILD PHASE
+
 In Jenkins, two pipelines were created - one for Terraform EC2 Creation and another for building,
 testing, and deploying the Flask web app to the created EC2 instance as a Docker image. The
 Terraform EC2 Creation pipeline contains the necessary files for creating a VPC with an IGW
@@ -60,6 +65,7 @@ machine with the virtual environment. In this phase, the Web App files are check
 GitHub Code repo and created as a tar file with the required files.
 
 CHALLENGES
+
 I had a similar issue with the terraform command. It was not recognized and I had trouble running
 it. However, I found a solution to this problem by configuring the full path where the command is
 stored. To get the location of the command, I used "which terraform" and this solved the problem.
@@ -146,6 +152,7 @@ across different environments makes it a popular choice for software development
 DevOps process.
 
 References
+
 1. https://github.com/neeharicamadanu/terraformEc2
 2. https://github.com/neeharicamadanu/CloudDevOps
 3. Jesse Suen; Todd Ekenstam; Alex Matyushentsev; Billy Yuen, GitOps and Kubernetes:
